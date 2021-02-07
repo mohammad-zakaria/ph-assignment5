@@ -1,13 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Cooking Master</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Cooking Master</title>
+    
+    <style>
+        body {
+            background-color:rgb(224, 188, 144);
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <form class="col-md-6 m-auto py-5">
+            <div class="input-group mb-3">
+                <input id = "get-mealTitle" type="text" class="form-control" placeholder="Enter a location for Weather ...">
+                <div class="input-group-append">
+                    <button id = "search-btn" type="button" class="btn btn-danger">Search</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
     <div id = "meal-details">
 
     </div>
@@ -17,5 +43,7 @@
     
 
     <script src="./api.js"></script>
+
 </body>
+
 </html>

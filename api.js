@@ -1,6 +1,31 @@
-fetch('https://www.themealdb.com/api/json/v1/1/search.php?s')
-.then(res => res.json())
-.then(data => displayMeals(data));
+//Finding Meal Title from user via Event Listener
+const searchBtn = document.getElementById("search-btn");
+searchBtn.addEventListener('click', function () {
+    const getMeal = document.getElementById("get-mealTitle");
+    if (getMeal.value != "") {
+        getMealTitle(getMeal.value);
+        getMeal.value = "";
+    }
+    else if (getMeal.value == "") {
+        alert('Enter your meal title!');
+    }
+})
+
+
+//Get meal title
+function getMealTitle(mealTitles) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealTitles}`)
+    .then(res => res.json())
+    .then(data => displayMeals(data));
+}
+
+
+
+
+
+
+
+
 
 const displayMeals = mealsObj =>{
     // console.log(mealsObj.meals);
@@ -73,7 +98,6 @@ const renderMealInfo = meal =>{
         <li>${meal.strIngredient4}</li>
         <li>${meal.strIngredient5}</li>
         <li>${meal.strIngredient6}</li>
-
     </ul>
     `
 }
