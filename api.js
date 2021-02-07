@@ -10,21 +10,26 @@ const displayMeals = mealsObj =>{
     const mealsDiv = document.getElementById('meals-div');
     for (let i = 0; i < mealsArray.length; i++) {
         const meal = mealsArray[i];
-
         const mealDiv = document.createElement('div');
 
-        const image = document.createElement('img');
-        image.innerText = meal.strMealThumb;
-        const mealTitle = document.createElement('h3');
-        mealTitle.innerText = meal.strMeal;
+        // const image = document.createElement('img');
+        // image.innerText = meal.strMealThumb;
+        // mealDiv.appendChild(image);
 
-        // mealDiv.innerText = meal.strMeal;
-        mealDiv.appendChild(image);
-        mealDiv.appendChild(mealTitle);
+        // const mealTitle = document.createElement('h3');
+        // mealTitle.innerText = meal.strMeal;
+        // mealDiv.appendChild(mealTitle);
+        // // mealDiv.innerText = meal.strMeal;
+        // mealsDiv.appendChild(mealDiv);
 
+        const mealInfo = `
+            <img src="${meal.strMealThumb}">
+            <h3>${meal.strMeal} </h3>
+        `
+        mealDiv.innerHTML = mealInfo;
         mealsDiv.appendChild(mealDiv);
 
-        
+
         console.log(meal.strMeal);
     }
 }
