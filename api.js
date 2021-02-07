@@ -40,9 +40,8 @@ const displayMeals = mealsObj =>{
         const mealDiv = document.createElement('div');
         mealDiv.className = 'meal';
         const mealInfo = `
-            <img class='food-image' src="${meal.strMealThumb}">
-            <h2>${meal.strMeal} </h2>
-            <button onclick="displayMealDetail('${meal.strMeal}')">Details</button>
+            <img onclick="displayMealDetail('${meal.strMeal}')" class='food-image' src="${meal.strMealThumb}">
+            <h2 onclick="displayMealDetail('${meal.strMeal}')" >${meal.strMeal} </h2>
         `
         mealDiv.innerHTML = mealInfo;
         mealsDiv.appendChild(mealDiv);
