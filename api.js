@@ -41,10 +41,40 @@ const displayMeals = mealsObj =>{
         mealDiv.className = 'meal';
         const mealInfo = `
             <img class='food-image' src="${meal.strMealThumb}">
-            <h3>${meal.strMeal} </h3>
+            <h2>${meal.strMeal} </h2>
+            <button onclick="displayMealDetail('${meal.strMeal}')">Details</button>
         `
         mealDiv.innerHTML = mealInfo;
         mealsDiv.appendChild(mealDiv);
     });
 
+}
+
+
+const displayMealDetail = name =>{
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
+    // console.log(url);
+    fetch(url)
+    .then(res => res.json())
+    .then(data => renderMealInfo(data.meals[0]));
+}
+
+const renderMealInfo = meal =>{
+    console.log(meal);
+    const mealDetails = document.getElementById("meal-details");
+    mealDetails.innerHTML = `
+    <img src="${meal.strMealThumb}" >
+    <h2> ${meal.strMeal}</h2>
+    <br>
+    <h4> Ingredients:</h4>
+    <ul>
+        <li>${meal.strIngredient1}</li>
+        <li>${meal.strIngredient2}</li>
+        <li>${meal.strIngredient3}</li>
+        <li>${meal.strIngredient4}</li>
+        <li>${meal.strIngredient5}</li>
+        <li>${meal.strIngredient6}</li>
+
+    </ul>
+    `
 }
