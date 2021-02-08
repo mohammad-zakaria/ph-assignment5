@@ -33,6 +33,7 @@ const displayMeals = mealsObj =>{
     // console.log(mealsArray);
 
     const mealsDiv = document.getElementById('meals-div');
+	  mealsDiv.innerHTML = '';
     // for (let i = 0; i < mealsArray.length; i++) {
     //     const meal = mealsArray[i];
     //     const mealDiv = document.createElement('div');
@@ -63,6 +64,7 @@ const displayMeals = mealsObj =>{
     mealsArray.forEach(meal => {
         //  const meal = mealsArray[i];
         const mealDiv = document.createElement('div');
+	
         mealDiv.className = 'meal';
         const mealInfo = `
             <img onclick="displayMealDetail('${meal.strMeal}')" class='food-image' src="${meal.strMealThumb}">
